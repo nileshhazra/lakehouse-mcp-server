@@ -31,9 +31,12 @@ flowchart LR
         SQL --> Delta
     end
 
-    Claude <-->|MCP Protocol (JSON-RPC)| Server
-    Guard <-->|Safe T-SQL Execution| SQL
+    Claude -->|"MCP Protocol (JSON-RPC)"| Server
+    Server -->|"Tool Results"| Claude
+    Guard -->|"Safe T-SQL"| SQL
+    SQL -->|"Tabular Records"| Guard
 ```
+
 
 ---
 
